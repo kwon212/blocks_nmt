@@ -202,6 +202,8 @@ def get_config_fr2en():
 
     # Validation set source file
     config['val_set'] = datadir + 'newstest2013.fr.tok'
+    
+    config['test_set'] = datadir + 'europarl-v7.fr-en.tok.fr'
 
     # Validation set gold file
     config['val_set_grndtruth'] = datadir + 'newstest2013.en.tok'

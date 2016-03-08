@@ -1,3 +1,5 @@
-data
+data/*
 training_out.txt
 search_model_*
+machine_translation/prepare_data.pyc
+wmt15
