@@ -1,0 +1,17 @@
+#!/bin/csh
+
+#$ -M tnguye28@nd.edu
+#$ -m abe
+#$ -q *@@nlp
+#$ -N blocks_nmt_translate         # Specify job name
+module load hdf5
+module load python
+
+set path=(/afs/crc.nd.edu/user/t/tnguye28/.local/bin $path)
+setenv THEANO_FLAGS 'device=cpu,floatX=float32,on_unused_input=warn'
+fsync -d 60  /afs/crc.nd.edu/group/nlp/07/tnguye28/blocks_nmt_translate_test/data/europarl-v7.fr-en.tok.fr.trans.out
+
+cd /afs/crc.nd.edu/group/nlp/07/tnguye28/blocks_nmt_translate_test/
+echo "\c";date >> /afs/crc.nd.edu/group/nlp/07/tnguye28/blocks_nmt_translate_test/data/europarl-v7.fr-en.tok.fr.trans.out
+source /afs/crc.nd.edu/group/nlp/07/tnguye28/blocks_nmt_translate_test/virenv_translate/bin/activate.csh
+python -m machine_translation --proto get_config_fr2en --mode translate
