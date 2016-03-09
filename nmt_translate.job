@@ -9,7 +9,7 @@ module load python
 
 set path=(/afs/crc.nd.edu/user/t/tnguye28/.local/bin $path)
 setenv THEANO_FLAGS 'device=cpu,floatX=float32,on_unused_input=warn'
-fsync -d 60  /afs/crc.nd.edu/group/nlp/07/tnguye28/blocks_nmt_translate_test/data/europarl-v7.fr-en.tok.fr.trans.out
+fsync -d 60  /afs/crc.nd.edu/group/nlp/07/tnguye28/blocks_nmt_translate_test/data/europarl-v7.fr-en.tok.fr.trans.out &
 
 cd /afs/crc.nd.edu/group/nlp/07/tnguye28/blocks_nmt_translate_test/
 echo "\c";date >> /afs/crc.nd.edu/group/nlp/07/tnguye28/blocks_nmt_translate_test/data/europarl-v7.fr-en.tok.fr.trans.out
