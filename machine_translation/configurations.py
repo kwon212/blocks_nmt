@@ -119,7 +119,7 @@ def get_config_cs2en():
 
     return config
 
-def get_config_fr2en():
+def get_config_en2fr():
     config = {}
 
     # Model related -----------------------------------------------------------
@@ -136,7 +136,7 @@ def get_config_fr2en():
     config['dec_embed'] = 620
 
     # Where to save model, this corresponds to 'prefix' in groundhog
-    config['saveto'] = 'search_model_fr2en'
+    config['saveto'] = 'search_model_en2fr'
 
     # Optimization related ----------------------------------------------------
 
@@ -158,7 +158,7 @@ def get_config_fr2en():
     # Regularization related --------------------------------------------------
 
     # Weight noise flag for feed forward layers
-    config['weight_noise_ff'] = False
+    config['weight_noise_ff'] = False 
 
     # Weight noise flag for recurrent layers
     config['weight_noise_rec'] = False
@@ -175,12 +175,12 @@ def get_config_fr2en():
     config['stream'] = 'stream'
 
     # Source and target vocabularies
-    config['src_vocab'] = datadir + 'vocab.fr-en.fr.pkl'
-    config['trg_vocab'] = datadir + 'vocab.fr-en.en.pkl'
+    config['src_vocab'] = datadir + 'train/vocab-en-fr.en.pkl'
+    config['trg_vocab'] = datadir + 'train/vocab-en-fr.fr.pkl'
 
     # Source and target datasets
-    config['src_data'] = datadir + 'news-commentary-v10.fr-en.fr.tok.shuf'
-    config['trg_data'] = datadir + 'news-commentary-v10.fr-en.en.tok.shuf'
+    config['src_data'] = datadir + 'train/training-en-fr.en.tok.shuf'
+    config['trg_data'] = datadir + 'train/training-en-fr.fr.tok.shuf'
 
     # Source and target vocabulary sizes, should include bos, eos, unk tokens
     config['src_vocab_size'] = 30000
@@ -201,10 +201,16 @@ def get_config_fr2en():
     config['bleu_script'] = datadir + 'multi-bleu.perl'
 
     # Validation set source file
-    config['val_set'] = datadir + 'newstest2013.fr.tok'
+    config['val_set'] = datadir + 'train/val-en-fr.en.tok'
 
     # Validation set gold file
-    config['val_set_grndtruth'] = datadir + 'newstest2013.en.tok'
+    config['val_set_grndtruth'] = datadir + 'train/val-en-fr.fr.tok'
+
+    # Test set source file
+    config['test_set'] = datadir + 'test/test-en-fr.en.tok'
+
+    # Test set gold file
+    config['test_set_grndtruth'] = datadir + 'test/test-en-fr.fr.tok'
 
     # Print validation output to file
     config['output_val_set'] = True

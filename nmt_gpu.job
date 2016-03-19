@@ -10,9 +10,9 @@ module load cuda/7.0
 
 set path=(/afs/crc.nd.edu/user/t/tnguye28/.local/bin $path)
 setenv THEANO_FLAGS 'device=gpu,floatX=float32,cuda.root=/afs/crc.nd.edu/x86_64_linux/c/cuda/7.0'
-fsync -d 3600  /afs/crc.nd.edu/group/nlp/07/tnguye28/blocks_nmt_gpu/training_out.txt &
+fsync -d 3600  /afs/crc.nd.edu/group/nlp/07/tnguye28/blocks_nmt/training_out.txt &
 
-cd /afs/crc.nd.edu/group/nlp/07/tnguye28/blocks_nmt_gpu/
+cd /afs/crc.nd.edu/group/nlp/07/tnguye28/blocks_nmt/
 echo "\c";date >> training_out.txt
-source /afs/crc.nd.edu/group/nlp/07/tnguye28/blocks_nmt_gpu/virenv/bin/activate.csh
-python -u -m machine_translation --proto get_config_fr2en >> training_out.txt
+source /afs/crc.nd.edu/group/nlp/07/tnguye28/blocks_nmt/virenv/bin/activate.csh
+python -u -m machine_translation --proto get_config_en2fr --mode train >> training_out.txt
